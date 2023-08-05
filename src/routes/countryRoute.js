@@ -33,7 +33,7 @@ router.get("/", async (req, res, next) => {
             try {
                 
                 let countries = await Country.findAll({ include: { model: Activity } })
-            
+                console.log("esto es conuntries", countries)
                 if (!countries.length) {
                     let apidata = await axios.get("https://restcountries.com/v3/all")
                     let info = apidata.data.map(c => {
